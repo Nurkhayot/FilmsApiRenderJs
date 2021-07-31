@@ -1,33 +1,14 @@
 let elList = setter(".list");
 let elSelect = setter(".form__select-js");
 
+// Filmlarning janirini ul ga chiqarib beradigan funksiya
 function renderGenresFunc(action, listName) {
   let newGenreLi = creator("li");
   newGenreLi.textContent = action;
   listName.appendChild(newGenreLi);
 }
 
-renderGenresSelect(films, elSelect);
-function renderGenresSelect(something, element) {
-  let result = [];
-  something.forEach((film) => {
-    film.genres.forEach((genre) => {
-      if (!result.includes(genre)) {
-        result.push(genre);
-      }
-    });
-  });
-
-  element.innerHTML = null;
-
-  result.forEach((genre) => {
-    const genreOption = creator("option");
-    genreOption.value = genre.toLowerCase();
-    genreOption.textContent = genre;
-    element.appendChild(genreOption);
-  });
-}
-
+// Filmlarni ekaranga chiqarish
 let arrayFunc = (films) => {
   films.forEach((film) => {
     //creating...
@@ -83,6 +64,28 @@ let arrayFunc = (films) => {
     newLi.appendChild(newGenresList);
   });
 };
+
+// option ga janrlardan bitta bitta qilib  chiqarib beradgan funksiya
+renderGenresSelect(films, elSelect);
+function renderGenresSelect(something, element) {
+  let result = [];
+  something.forEach((film) => {
+    film.genres.forEach((genre) => {
+      if (!result.includes(genre)) {
+        result.push(genre);
+      }
+    });
+  });
+
+  element.innerHTML = null;
+
+  result.forEach((genre) => {
+    const genreOption = creator("option");
+    genreOption.value = genre.toLowerCase();
+    genreOption.textContent = genre;
+    element.appendChild(genreOption);
+  });
+}
 
 elList.innerHTML = null;
 arrayFunc(films);
