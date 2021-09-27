@@ -1,64 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/style.css" />
-    <title>MY Films</title>
-  </head>
-  <body>
-    <div class="container">
-      <div class="h1_wrapper">
-        <h1 class="h1">Best Movies only here</h1>
-      </div>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./css/main.css" />
+		<title>Document</title>
+	</head>
+	<body>
+		<section class="movies">
+			<div class="container">
+				<h2 class="movies__heading">IMOIVE</h2>
+				<form class="movies__form">
+					<label class="movies__form__label">
+						Qidiruv
+						<input
+							class="movies__form__input"
+							type="search"
+							name="movies_search"
+							placeholder="qidiring.."
+						/>
+					</label>
 
-      <form class="form">
-        <label class="form__label">
-          Qidirish:
-          <input class="form__input" type="search" placeholder="search..." />
-        </label>
-        <label class="form__label">
-          Janrlar bo'yicha qidiruv:
-          <select class="form__select form__select-js">
-            <option class="form__option" value="something">something</option>
-          </select>
-        </label>
-        <label class="form__label">
-          Filtrlash:
-          <select class="form__select">
-            <option class="form__option" value="a_z">A-Z</option>
-            <option class="form__option" value="z_a">Z-A</option>
-            <option class="form__option" value="old_new">OLD-NEW</option>
-            <option class="form__option" value="new_old">NEW-OLD</option>
-          </select>
-        </label>
+					<label class="movies__form__label">
+						Janrlar bo'yicha qidiruv
 
-        <button class="form__button" type="submit">Qidirish</button>
-      </form>
+						<select
+							class="movies__form__select movies__form__select-genre"
+							name="movies__genres"
+						>
+							<option value="All">All</option>
+						</select>
+					</label>
 
-      <ul class="list">
-        <li class="list__item">
-          <img
-            class="card__img"
-            src="https://via.placeholder.com/150/200"
-            width="150"
-            height="200"
-            alt="img"
-          />
-          <h2 class="names">Avengers</h2>
-          <p class="previews">Lorem ipsum dolor sit.</p>
-          <time class="time" datetime="2021-10-10">2021-10-10</time>
-          <ul class="genres__list">
-            <li class="genres__item">comedy</li>
-            <li class="genres__item">action</li>
-          </ul>
-        </li>
-      </ul>
-    </div>
+					<label class="movies__form__label">
+						Filtrlash
 
-    <script src="./js/films.js"></script>
-    <script src="./js/utils.js"></script>
-    <script src="./js/app.js"></script>
-  </body>
+						<select
+							class="movies__form__select movies__form__select-sort"
+							name="movies__genres"
+						>
+							<option value="a_z">A-Z</option>
+							<option value="z_a">Z-A</option>
+							<option value="old_new">OLD-NEW</option>
+							<option value="new_old">NEW-OLD</option>
+						</select>
+					</label>
+
+					<button class="movies__form__submit-btn" type="submit">
+						Qidirish
+					</button>
+				</form>
+
+				<ul class="bookmarks__list"></ul>
+				<ul class="movies__list"></ul>
+			</div>
+		</section>
+
+		<template id="movie__template">
+			<li class="movie">
+				<img
+					class="movie__img"
+					src="https://via.placeholder.com/150x200"
+					alt="Template image"
+					width="150"
+					height="200"
+				/>
+
+				<h3 class="movie__heading">Avengers</h3>
+
+				<time class="movie__date" datetime="2021-10-10">2021-10-10</time>
+
+				<button class="movie__bookmark-btn" data-film_id="0">
+					bookmark
+				</button>
+				<button class="movie__more-btn" data-film_id="0">more</button>
+			</li>
+		</template>
+
+		<div class="modal">
+			<div class="modal__inner">
+				<p class="modal__description">
+					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi,
+					quaerat.
+				</p>
+				<button class="modal__close-btn">Close</button>
+			</div>
+		</div>
+		<script src="./js/films.js"></script>
+		<script src="./js/lesson.js"></script>
+		<script src="./js/utils.js"></script>
+		<script src="./js/main.js"></script>
+	</body>
 </html>
